@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addVideo } from '../service/allAPI';
+import { toast } from 'react-toastify';
 
 
 
@@ -63,6 +63,7 @@ function Add({setAddVideoResponse}) {
         setAddVideoResponse(result.data)
         console.log(result);
         if(result.status>=200 && result.status<300){
+          setVideoDetails({caption:"",imageUrl:"",youtubeUrl:""})
           toast.success(`${result.data.caption} Added to your collection`)
           handleClose()
         }
@@ -155,9 +156,7 @@ function Add({setAddVideoResponse}) {
       {/* how to convert opriginal video url to embedded url */}
 
      
-      <ToastContainer position="top-right" autoClose={3000} theme="colored"
-
-    />
+      {/* <ToastContainer position="top-right" autoClose={3000} theme="colored"/> */}
     
     
     </>
